@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import Header from "./header";
 import { SidebarProvider } from "../ui/sidebar";
-import ProctorSideBar from "./SideBar";
+import ProctorSideBar from "./sidebar";
 
 export default function ProctorLayout() {
   return (
