@@ -1,4 +1,4 @@
-import AttendanceCard from "@/components/proctor-manager/MAnagerAttendanceCard";
+import AttendanceCard from "@/components/proctor-manager/ManagerAttendanceCard";
 import { getAttendanceNotification } from "@/store/attendance/attendance-Slice";
 import { getAllocatedStudent } from "@/store/studentAllocation/allocateSlice";
 import { useEffect, useState } from "react";
