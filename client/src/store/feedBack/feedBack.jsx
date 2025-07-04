@@ -13,7 +13,7 @@ export const InsertFeedBack = createAsyncThunk(
     try {
       console.log(userName, description, sex, "userName,description,sex");
       const response = await axios.post(
-        "http://localhost:9000/api/feedBack/add",
+        `${import.meta.env.VITE_API_URL}/api/feedBack/add`,
         { userName, description, sex },
         { withCredentials: true }
       );
@@ -30,7 +30,7 @@ export const getFeedBackForUser = createAsyncThunk(
   async (sex) => {
     try {
       const response = await axios.get(
-        `http://localhost:9000/api/feedBack/get/${sex}`,
+        `${import.meta.env.VITE_API_URL}/api/feedBack/get/${sex}`,
    
         { withCredentials: true }
       );
@@ -49,7 +49,7 @@ export const getFeedBackForStudent = createAsyncThunk(
       console.log(id,"id from fead back");
       
       const respons = await axios.get(
-        `http://localhost:9000/api/feedBack/getForStud/${id}`,
+        `${import.meta.env.VITE_API_URL}/api/feedBack/getForStud/${id}`,
          
        
       );
@@ -66,7 +66,7 @@ export const getAllFeedback = createAsyncThunk(
   async () => {
     try {
       const response = await axios.get(
-        "http://localhost:9000/api/feedBack/getAll",
+        `${import.meta.env.VITE_API_URL}/api/feedBack/getAll`,
         { withCredentials: true }
       );
       return response.data;

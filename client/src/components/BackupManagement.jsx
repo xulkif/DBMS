@@ -36,7 +36,7 @@ const BackupManagement = () => {
   const fetchBackups = async () => {
     setLoading(true);
     try {
-      const response = await axios.get('http://localhost:9000/api/backup', axiosConfig);
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/backup`, axiosConfig);
       
       if (response.data.success) {
         setBackups(response.data.data || []);
@@ -56,7 +56,7 @@ const BackupManagement = () => {
   const createBackup = async () => {
     setActionInProgress(true);
     try {
-      const response = await axios.post('http://localhost:9000/api/backup', {}, axiosConfig);
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/backup`, {}, axiosConfig);
       
       if (response.data.success) {
         setBackups(response.data.backups || []);
@@ -79,7 +79,7 @@ const BackupManagement = () => {
   const deleteBackup = async (filename) => {
     setActionInProgress(true);
     try {
-      const response = await axios.delete(`http://localhost:9000/api/backup/${filename}`, axiosConfig);
+      const response = await axios.delete(`${import.meta.env.VITE_API_URL}/api/backup/${filename}`, axiosConfig);
       
       if (response.data.success) {
         setBackups(response.data.data || []);
@@ -99,7 +99,7 @@ const BackupManagement = () => {
   // Download a backup
   const downloadBackup = (filename) => {
     // Create a full URL with credentials
-    const downloadUrl = `http://localhost:9000/api/backup/download/${filename}`;
+    const downloadUrl = `${import.meta.env.VITE_API_URL}/api/backup/download/${filename}`;
     
     // Create a temporary anchor element and trigger download
     const a = document.createElement('a');
@@ -130,7 +130,7 @@ const BackupManagement = () => {
     setActionInProgress(true);
     try {
       const response = await axios.post(
-        `http://localhost:9000/api/backup/restore/${selectedBackup.filename}`, 
+        `${import.meta.env.VITE_API_URL}/api/backup/restore/${selectedBackup.filename}`, 
         {}, 
         axiosConfig
       );

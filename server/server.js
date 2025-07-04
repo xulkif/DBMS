@@ -23,9 +23,12 @@ const http = require('http');
 const socketIo = require('socket.io');
 
  
-// Connect to MongoDB with the database name
+//mongodb://localhost:27017/DMS   zulkifazher2   1234qwer  ,AOgfdirkqlryg9bB
+//admin123
+//
+
 mongoose
-  .connect('mongodb://localhost:27017/DMS', 
+  .connect(process.env.MONGO_URL, 
     {serverSelectionTimeoutMS: 30000}
   )
   .then(() => {
@@ -42,25 +45,8 @@ const app = express();
 app.use(cookieParser());
 app.use(express.json());
 
-// CORS configuration - must be before routes
-// app.use(cors({
-//   origin: 'http://localhost:5173'||'http://localhost:5174', // Your React app URL
-//   credentials: true,
-//   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
-//   allowedHeaders: ['Content-Type', 'Authorization', 'Cache-Control'],
-//   exposedHeaders: ['set-cookie'],
-// }));
-
-// // Static files serving with CORS
-// app.use('/uploads', (req, res, next) => {
-//   res.header('Access-Control-Allow-Origin', 'http://localhost:5174');
-//   res.header('Access-Control-Allow-Credentials', 'true');
-//   next();
-// }, express.static(path.join(__dirname, 'uploads')));
-
-// Allow requests from either 5173 or 5174 for static files
- // Corrected allowedOrigins array for the static files middleware
-app.use('/uploads', (req, res, next) => {
+ 
+ app.use('/uploads', (req, res, next) => {
   const allowedOrigins = ['http://localhost:5173', 'http://localhost:5174']; // Corrected array
   const origin = req.headers.origin;
 
@@ -69,10 +55,7 @@ app.use('/uploads', (req, res, next) => {
     res.header('Access-Control-Allow-Credentials', 'true');
   }
 
-  // Set other necessary headers for the static files response if needed
-  // res.header('Access-Control-Allow-Methods', 'GET'); // Example for GET requests
-  // res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization'); // Example headers
-
+ 
   next();
 }, express.static(path.join(__dirname, 'uploads')));
 

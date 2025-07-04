@@ -5,7 +5,7 @@ import ChatComponent from '../../components/Chat/ChatComponent';
 import { io } from 'socket.io-client';
 import { getAllUser } from '@/store/user-slice/userSlice';
 
-const SOCKET_URL ='http://localhost:9000';
+const SOCKET_URL =import.meta.env.VITE_API_URL;
 
 const StudentDeanChat = () => {
   const dispatch = useDispatch();

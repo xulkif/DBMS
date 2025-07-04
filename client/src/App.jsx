@@ -78,15 +78,15 @@ function App() {
   //   userName:'abdi'
   //  }
   //  const isAuthenticated=true
-  //  const isLoading=true
+  //  const isLoading=false
 
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(checkAuthorization());
-    // dispatch(GetAvaiableBlocks())
-    // dispatch(getAllocatedStudent())
-    // dispatch(getAllUser())
-  }, [dispatch]);
+  //   // dispatch(GetAvaiableBlocks())
+  //   // dispatch(getAllocatedStudent())
+  //   // dispatch(getAllUser())
+   }, [dispatch]);
 
   {
     /**
@@ -239,9 +239,9 @@ function App() {
               <CheckAuthComponent isAuthenticated={isAuthenticated} user={user}>
                 <AdminLayout />
               </CheckAuthComponent>
-              //<AdminLayout />
+           
               // <CheckAuthComponent isAuthenticated={isAuthenticated} user={user}>
-
+             //   <AdminLayout />
               // </CheckAuthComponent>
             }
           >

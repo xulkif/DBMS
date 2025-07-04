@@ -14,7 +14,7 @@ export const registerDorm = createAsyncThunk(
       console.log('Registering dorm:', { blockId, floorNumber, dormNumber, capacity });
       
       const response = await axios.patch(
-        `http://localhost:9000/api/dorm/${blockId}/floors/${floorNumber}/dorms`,
+        `${import.meta.env.VITE_API_URL}/api/dorm/${blockId}/floors/${floorNumber}/dorms`,
         // Send only the required fields
         { dormNumber, capacity,status,description,registerBy },
         {
@@ -42,7 +42,7 @@ export const updateDormStatus = createAsyncThunk(
     console.log("Updating dorm status:", { blockId, floorNumber, dormNumber, status });
     try {
       const response = await axios.patch(
-        `http://localhost:9000/api/dorm/${blockId}/floors/${floorNumber}/dorms/${dormNumber}/status`,
+        `${import.meta.env.VITE_API_URL}/api/dorm/${blockId}/floors/${floorNumber}/dorms/${dormNumber}/status`,
         { status }
       );
       console.log("Dorm status updated successfully:", response.data);
@@ -58,7 +58,7 @@ export const getMaintenanceIssueDormsSubmmitedByProctor = createAsyncThunk(
   async () => {
     try {
       const response = await axios.get(
-        'http://localhost:9000/api/dorm/getIssueDorms/'
+        `${import.meta.env.VITE_API_URL}/api/dorm/getIssueDorms/`
       );
 
       console.log("Response from getMaintenanceIssueDormsSubmmitedByProctor:", response.data);
@@ -76,7 +76,7 @@ export const getDormStatistics = createAsyncThunk(
   async () => {
     try {
       const response = await axios.get(
-        'http://localhost:9000/api/dorm/statistics'
+        `${import.meta.env.VITE_API_URL}/api/dorm/statistics`
       );
       return response.data;
     } catch (error) {

@@ -3,8 +3,7 @@ import axios from "axios";
 
 // Configure axios defaults
 axios.defaults.withCredentials = true;
-axios.defaults.baseURL = 'http://localhost:9000/api';
-
+ 
 const initialState = {
   user: null,
   isAuthenticated: false,
@@ -16,7 +15,7 @@ export const loginUser = createAsyncThunk(
   "auth/login",
   async (formData, { rejectWithValue }) => {
     try {
-      const response = await axios.post('/auth/logIn', formData);
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/logIn`, formData);
       return response.data;
     } catch (error) {
       if (!error.response) {
@@ -31,7 +30,7 @@ export const checkAuthorization = createAsyncThunk(
   "auth/checkAuth",
   async (_, { rejectWithValue }) => {
     try {
-      const response = await axios.get('/auth/checkauth');
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/auth/checkauth`);
       return response.data;
     } catch (error) {
       if (!error.response) {
@@ -50,7 +49,7 @@ export const LogOutUser = createAsyncThunk(
   "auth/logout",
   async (_, { rejectWithValue }) => {
     try {
-      const response = await axios.get('/auth/logOut');
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/auth/logOut`);
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response?.data || { message: 'Failed to logout' });
@@ -66,7 +65,7 @@ export const CreateAccount = createAsyncThunk(
     try {
       console.log("from CreateAccountSlice", formData);
       const result = await axios.post(
-        "http://localhost:9000/api/auth/account",
+        `${import.meta.env.VITE_API_URL}/api/auth/account`,
         formData,
         {
           withCredentials: true,
