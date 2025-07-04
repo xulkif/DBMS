@@ -144,10 +144,10 @@ Contributions are welcome! Please fork the repository and submit a pull request.
 This project is licensed under the MIT License.
 
 ## Contact
-For questions, suggestions, or support, please contact: [your-email@example.com]
+For questions, suggestions, or support, please contact: [zulkifazher2@gmail.com]
 
-## Screenshots / Demo
-> _Add screenshots or a link to a live demo here_
+## Demo
+>  
 
 ---
 
