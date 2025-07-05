@@ -47,7 +47,7 @@ app.use(express.json());
 
  
  app.use('/uploads', (req, res, next) => {
-  const allowedOrigins = ['http://localhost:5173', 'http://localhost:5174']; // Corrected array
+  const allowedOrigins =process.env.Client_URL; // Corrected array
   const origin = req.headers.origin;
 
   if (allowedOrigins.includes(origin)) {
@@ -61,7 +61,7 @@ app.use(express.json());
 
 // Your existing CORS configuration, corrected to accept an array of origins
 app.use(cors({
-  origin: ['http://localhost:5173', 'http://localhost:5174'], // Corrected to an array
+  origin:process.env.Client_URL;, // Corrected to an array
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization', 'Cache-Control'],
@@ -95,7 +95,7 @@ const server = http.createServer(app);
  
 const io = socketIo(server, {
   cors: {
-    origin: 'http://localhost:5173',
+    origin: process.env.Client_URL;,
     methods: ['GET', 'POST'],
     credentials: true,
   },
