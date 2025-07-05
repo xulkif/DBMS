@@ -118,7 +118,7 @@ Adjust/add variables as needed for your deployment.
   cd client
   npm run dev
   ```
-- The frontend will typically run on [http://localhost:5173](http://localhost:5173) and the backend on [http://localhost:5000](http://localhost:5000) (or as configured).
+
 
 ## Scripts
 ### Frontend (client)
@@ -148,7 +148,7 @@ For questions, suggestions, or support, please contact: [zulkifazher2@gmail.com]
 
 ## Demo
 >  
-
+https://dbms-wku.onrender.com/
 ---
 
 **WKU DBMS** – Dormitory Management System for Wolkite University 
