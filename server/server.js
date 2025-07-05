@@ -61,7 +61,7 @@ app.use(express.json());
 
 // Your existing CORS configuration, corrected to accept an array of origins
 app.use(cors({
-  origin:process.env.Client_URL;, // Corrected to an array
+  origin:process.env.Client_URL, // Corrected to an array
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization', 'Cache-Control'],
